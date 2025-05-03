@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+body {
+  background-color: #121212;
+  color: #f8f8f2;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#container {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  padding: 2em;
+  box-shadow: 0 0 20px rgba(137, 64, 255, 0.3);
+  width: 80%;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+#title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#title h1 {
+  font-size: 2.5em;
+  margin: 0;
+  text-align: center;
+  background-image: linear-gradient(
+    to right,
+    #8940ff,
+    #6a11f8
+  ); /* Exemplo de gradiente linear */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+#title p {
+  font-size: 1.2em;
+  color: #f8f8f2;
+  margin: 0.5em 0;
+  text-align: center;
+}
+
+#top {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1em;
+  color: #fff;
+}
+
+#equation-container {
+  font-size: 4em;
+  margin-bottom: 0.5em;
+  text-align: center;
+}
+
+#answer {
+  padding: 0.6em;
+  border: 2px solid #8940ff;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #f8f8f2;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0.8em;
+  font-size: 0.8em;
+}
+
+#answer::placeholder {
+  color: #aaa;
+}
+
+#submit {
+  background-color: #8940ff;
+  color: white;
+  border: none;
+  padding: 1em 2em;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1em;
+}
+
+#submit:hover {
+  background-color: #6f1cf5;
+  box-shadow: 0 0 15px #8940ff;
+}
+
+#score,
+#time,
+#level {
+  color: #8940ff;
+  font-weight: bold;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  #container {
+    width: 95%;
+    padding: 1.5em;
+    margin: 1em;
+  }
+
+  #top {
+    font-size: 0.9em;
+  }
+
+  #top p {
+    margin-bottom: 0.5em;
+  }
+
+  #equation-container {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+  }
+
+  #answer {
+    padding: 1em;
+    font-size: 1.1em;
+  }
+
+  #submit {
+    padding: 1.2em 2.5em;
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  #equation-container {
+    font-size: 2.5em;
+  }
+
+  #answer {
+    font-size: 1em;
+  }
+
+  #submit {
+    font-size: 1em;
+  }
+}
