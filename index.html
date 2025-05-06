@@ -22,9 +22,17 @@
         <p id="equation"></p>
       </div>
       <input type="text" id="answer" placeholder="Digite sua resposta" />
-      <div id="buttons">
+      <div class="buttons">
         <button id="submit" onclick="checkAnswer()">Verificar</button>
       </div>
+    </div>
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <h2>Fim de Jogo</h2>
+        <p id="final-score">Você fez 0 pontos!</p>
+        <div class="buttons">
+        <button id="restart" onclick="restartGame()">Recomeçar</button>
+        </div>
     </div>
     <script src="script.js"></script>
   </body>

@@ -30,10 +30,8 @@ function generateEquation() {
       break;
   }
   if (!Number.isInteger(correctAnswer) || correctAnswer < 0) {
-    generateEquation(); // Regenerate if the answer is negative or not an integer
+    generateEquation();
   }
-
-  console.log("Correct Answer: ", correctAnswer);
 }
 
 function checkAnswer() {
@@ -42,13 +40,12 @@ function checkAnswer() {
     score++;
 
     document.getElementById("score").innerText = score;
-    document.getElementById("answer").value = ""; // Clear the input field
+    document.getElementById("answer").value = "";
 
     if (score % 5 === 0) {
-      level++; // Increase level every 5 correct answers
+      level++;
       document.getElementById("level").innerText = level;
     }
-    // Generate a new equation
     generateEquation();
   }
 }
@@ -58,33 +55,44 @@ function startTimer() {
   timer = setInterval(() => {
     time++;
     if (time > 60) {
-      clearInterval(timer); // Stop the timer when it reaches 30 seconds
-      gameOver(); // Call gameOver function
+      clearInterval(timer);
+      gameOver();
     }
     document.getElementById("time").innerText = time;
   }, 1000);
 }
 
 function gameOver() {
-  alert("Game Over! Your score is: " + score);
-  generateEquation(); // Reset the game
-  score = 0; // Reset score
-  level = 1; // Reset level
-  startTimer(); // Restart the timer
-  document.getElementById("score").innerText = score; // Update score display
-  document.getElementById("level").innerText = level; // Update level display
+  generateEquation();
+  document.getElementById("modal").style.display = "flex";
+  document.getElementById("final-score").innerText =
+    "Você fez " + score + " pontos!";
 }
+
+document.getElementById("restart").onclick = function () {
+  document.getElementById("modal").style.display = "none";
+  document.getElementById("answer").value = "";
+  document.getElementById("score").innerText = 0;
+  document.getElementById("level").innerText = 1;
+  startGame();
+};
 
 document.addEventListener(
   "keypress",
   function (e) {
     if (e.which == 13) {
-      checkAnswer(); // Check the answer when Enter is pressed
-      e.preventDefault(); // Prevent the default action of the Enter key
+      checkAnswer();
+      e.preventDefault();
     }
   },
   false
 );
 
-generateEquation();
-startTimer(); // Start the timer when the page loads
+startGame = () => {
+  score = 0;
+  level = 1;
+  generateEquation();
+  startTimer();
+};
+
+startGame();
